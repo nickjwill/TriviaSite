@@ -1,0 +1,27 @@
+<%= form_with(model: afternoon, local: true) do |form| %>
+  <% if afternoon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(afternoon.errors.count, "error") %> prohibited this afternoon from being saved:</h2>
+
+      <ul>
+      <% afternoon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :afternoon_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :afternoon_body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

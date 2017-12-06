@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @afternoon.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @afternoon.body %>
+</p>
+
+<%= link_to 'Edit', edit_afternoon_path(@afternoon) %> |
+<%= link_to 'Back', afternoons_path %>

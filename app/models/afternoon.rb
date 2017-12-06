@@ -1,0 +1,2 @@
+class Afternoon < ApplicationRecord
+end
