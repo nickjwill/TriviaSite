@@ -19,13 +19,9 @@
     <%= link_to "Register", new_user_registration_path %>
     <%= link_to "Login", new_user_session_path %>
     <% end %>
-
-     <div>
-      <div><%= link_to "Home", root_path %></div>
-      <div><%= link_to "Faqs", faqs_path %></div>
-      <div><%= link_to "Trivia", afternoons_path %></div>
-    </div>
     
+    <%= render "shared/nav" %>
+
     <%= yield %>
 
   </body>
