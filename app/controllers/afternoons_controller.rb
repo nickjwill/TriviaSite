@@ -5,11 +5,14 @@ class AfternoonsController < ApplicationController
   # GET /afternoons.json
   def index
     @afternoons = Afternoon.all
+    @page_title = "Trivia"
   end
 
   # GET /afternoons/1
   # GET /afternoons/1.json
   def show
+    @page_title = @afternoon.title
+    @seo_keywords = @afternoon.body
   end
 
   # GET /afternoons/new
