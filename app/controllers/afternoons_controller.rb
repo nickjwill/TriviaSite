@@ -1,5 +1,6 @@
 class AfternoonsController < ApplicationController
   before_action :set_afternoon, only: [:show, :edit, :update, :destroy]
+  layout "afternoon"
 
   # GET /afternoons
   # GET /afternoons.json
