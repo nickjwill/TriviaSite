@@ -65,6 +65,7 @@ class AfternoonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def afternoon_params
-      params.require(:afternoon).permit(:title, :body)
+      params.require(:afternoon).permit(:title, 
+                                        :body)
     end
 end
