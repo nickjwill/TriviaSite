@@ -19,4 +19,4 @@
 
 <br>
 
-<%= link_to 'New Afternoon', new_afternoon_path %>
+<%= link_to 'New Afternoon', new_afternoon_path if logged_in?(:site_admin) %>

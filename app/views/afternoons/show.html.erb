@@ -10,5 +10,5 @@
   <%= @afternoon.body %>
 </p>
 
-<%= link_to 'Edit', edit_afternoon_path(@afternoon) %> |
+<%= link_to 'Edit', edit_afternoon_path(@afternoon) if logged_in?(:site_admin) %> |
 <%= link_to 'Back', afternoons_path %>

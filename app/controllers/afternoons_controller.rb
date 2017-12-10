@@ -1,6 +1,7 @@
 class AfternoonsController < ApplicationController
   before_action :set_afternoon, only: [:show, :edit, :update, :destroy]
   layout "afternoon"
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   # GET /afternoons
   # GET /afternoons.json
