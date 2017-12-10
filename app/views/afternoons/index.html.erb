@@ -6,21 +6,14 @@
   <thead>
     <tr>
       <th>Title</th>
+       <th>Date</th>
       <th>Body</th>
       <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @afternoons.each do |afternoon| %>
-      <tr>
-        <td><%= afternoon.title %></td>
-        <td><%= afternoon.body %></td>
-        <td><%= link_to 'Show', afternoon %></td>
-        <td><%= link_to 'Edit', edit_afternoon_path(afternoon) %></td>
-        <td><%= link_to 'Delete', afternoon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <%= render @afternoons %>
   </tbody>
 </table>
 

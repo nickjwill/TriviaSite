@@ -1,0 +1,8 @@
+  <tr>
+    <td><%= afternoon.title.upcase %></td>
+     <td>Published <%= distance_of_time_in_words(afternoon.created_at, Time.now) %> ago</td>
+    <td><%= afternoon.body %></td>
+    <td><%= link_to 'Show', afternoon %></td>
+    <td><%= link_to 'Edit', edit_afternoon_path(afternoon) %></td>
+    <td><%= link_to 'Delete', afternoon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
