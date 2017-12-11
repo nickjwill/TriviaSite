@@ -1,22 +1,6 @@
-
-<div class="inner cover">
-  <h1 class="cover-heading">Cover your page.</h1>
-  <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-  <p class="lead">
-   <%= link_to "Trivia", afternoons_path, class: "btn btn-lg btn-secondary" %>
-  </p>
-</div>
-
-
-
-
-
-
-
-
-
-
-<!-- <span data-text="H"></span>
+<div class="cover-container">
+	
+<span data-text="H"></span>
 <span data-text="Q"></span>
 <span data-text="-"></span>
 <span data-text="T"></span>
@@ -25,5 +9,12 @@
 <span data-text="V"></span>
 <span data-text="I"></span>
 <span data-text="A"></span>
- -->
+  </div>
+  <div class="inner">
+  <p class="lead">
+   <%= link_to "Afternoon Questions", afternoons_path, class: "btn btn-lg btn-primary" %>
+   <%= link_to "Evening Questions", afternoons_path, class: "btn btn-lg btn-danger" %>
+  </p>
+  </div>
+
 

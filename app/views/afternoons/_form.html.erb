@@ -1,7 +1,7 @@
-<%= form_with(model: afternoon, local: true) do |form| %>
+<%= form_for(afternoon) do |f| %>
   <% if afternoon.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(afternoon.errors.count, "error") %> prohibited this afternoon from being saved:</h2>
+      <h2><%= pluralize(afternoon.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
       <% afternoon.errors.full_messages.each do |message| %>
@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :afternoon_title %>
+  <div class="form-group">
+    <%= f.text_field :title, class: 'form-control', placeholder: "Title" %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :afternoon_body %>
+
+  <div class="form-group">
+    <%= f.text_area :body, class: 'form-control', rows: 15, placeholder: "Content" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+
+  <div class="form-group">
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
   </div>
 <% end %>

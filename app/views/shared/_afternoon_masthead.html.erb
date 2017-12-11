@@ -1,0 +1,10 @@
+<!-- start of blog header -->
+<div class="blog-header">
+	<%= render "shared/google_ad" %>
+<div class="container">
+<h1 class="blog-title">Trivia Q/A</h1>
+<p class="lead blog-description">An example bl template built with Bootstrap.</p>
+<%= link_to 'Write a New Blog', new_afternoon_path if logged_in?(:site_admin) %>
+</div>
+</div>
+<!-- end of blog header -->

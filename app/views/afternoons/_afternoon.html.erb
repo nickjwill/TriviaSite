@@ -1,8 +1,15 @@
-  <tr>
-    <td><%= afternoon.title.upcase %></td>
-     <td>Published <%= distance_of_time_in_words(afternoon.created_at, Time.now) %> ago</td>
-    <td><%= afternoon.body %></td>
-    <td><%= link_to 'Show', afternoon %></td>
-  	<td><%= link_to 'Edit', edit_afternoon_path(afternoon) if logged_in?(:site_admin) %></td>
-  	<td><%= link_to 'Delete Post', afternoon, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %></td>
-  </tr>
+<div class="blog-post">
+<h2 class="blog-post-title"><%= link_to afternoon.title.upcase, afternoon %></h2>
+<p class="blog-post-meta">Published <%= distance_of_time_in_words(afternoon.created_at, Time.now) %> ago</p>
+
+<% if logged_in?(:site_admin) %>
+  <p class="blog-post-meta">
+  <%= link_to 'Edit', edit_afternoon_path(afternoon) %> /
+  <%= link_to 'Delete Post', afternoon, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
+  </p>
+<% end %>
+
+<p>
+  <%= afternoon.body %>
+</p>
+</div>

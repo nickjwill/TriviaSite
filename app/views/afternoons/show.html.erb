@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="col-sm-8 blog-main">
 
-<p>
-  <strong>Title:</strong>
-  <%= @afternoon.title %>
-</p>
+  <h2><%= @afternoon.title %></h2>
 
-<p>
-  <strong>Body:</strong>
-  <%= @afternoon.body %>
-</p>
+  <%= link_to 'Edit', edit_afternoon_path(@afternoon) if logged_in?(:site_admin) %>
 
-<%= link_to 'Edit', edit_afternoon_path(@afternoon) if logged_in?(:site_admin) %> |
-<%= link_to 'Back', afternoons_path %>
+  <p>
+    <%= @afternoon.body %>
+  </p>
+
+</div>
+

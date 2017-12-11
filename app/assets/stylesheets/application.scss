@@ -1,5 +1,7 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,900);
+@import "font-awesome";
+@import "gritter";
 
 /*
  * Globals
@@ -158,11 +160,145 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 55rem;
+  }
+}
+
+/*----------------------------------*/
+$yellow : #FDCD2F;
+$cyan : #4EC0B6;
+$navy : #3967CB;
+$red : #E23942;
+
+$colors : $cyan, $navy, $yellow, $red;
+$background: #111;
+$chars : 9;
+$duration : 7s;
+$easing : cubic-bezier(.94,.39,.91,.74);
+$easing: ease-out;
+$shade : 15%;
+
+// Diagonal clipping 
+$left : 0 0 100% 0, 100% 100%;
+$right : 0 0, 100% 100%, 0 100%;
+
+// Vertical clipping
+// $left : 0 0, 50% 0, 50% 100%, 0 100%;
+// $right : 50% 0, 100% 0, 100% 100%, 50% 100%;
+
+@mixin clip($path) {
+  -webkit-clip-path: polygon($path);
+  clip-path: polygon($path);
+}
+
+@mixin color($color) {
+  &:before { color: $color; }
+  &:after { color: adjust-hue($color, 20deg) }
+}
+
+
+@keyframes flip-top {
+  from {
+    transform:
+      rotate(50deg)
+      translateY(120vh);
+  }
+}
+
+@keyframes flip-bottom {
+  from {
+    transform:
+      rotate(-50deg)
+      translateY(120vh);
   }
 }
 
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: $background;
+  animation: glow $duration both;
+}
+
+
+span {
+  font: 700 15vw Raleway;
+  position: relative;
+  display: inline-block;
+  perspective: 500px;
+  
+  &:nth-child(odd) {
+    &:before { animation-name: flip-top; }
+    &:after { animation-name: flip-bottom; }
+  }
+  &:nth-child(even) {
+    &:before { animation-name: flip-bottom; }
+    &:after { animation-name: flip-top; }
+  }
+  
+  
+  @for $i from 1 through length($colors) {
+    &:nth-child(#{$i}n + #{$i - 1}) {
+      @include color(nth($colors, $i));
+    }
+  }
+      
+  
+  &:before, &:after {
+    display: block;
+    content: attr(data-text);
+    animation: $duration/$chars $easing both;
+    animation-name: inherit;
+    text-shadow: 0 0 1em;
+  }
+  &:before {
+    @include clip($left);
+    position: absolute;
+    transform-origin: left center;
+    color: nth($colors, 1);
+  }
+  &:after {
+    @include clip($right);
+    color: nth($colors, 2);
+  }
+}
+
+/*Social Page*/
+
+.container-bottom {
+ position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+
+.line {
+  color: white;
+    margin: auto;
+    width: 70%;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 80px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fa-twitter {
+    color: white;
+}
+
+.fa-facebook {
+    color: white;
+}
+
+.fa-instagram {
+    color: white;
+}
 
 
 

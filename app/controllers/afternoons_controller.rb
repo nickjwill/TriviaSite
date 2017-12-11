@@ -6,7 +6,7 @@ class AfternoonsController < ApplicationController
   # GET /afternoons
   # GET /afternoons.json
   def index
-    @afternoons = Afternoon.all
+    @afternoons = Afternoon.page(params[:page]).per(5)
     @page_title = "Trivia"
   end
 
